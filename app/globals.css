@@ -1,0 +1,390 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color palette to blue theme with enhanced visual hierarchy */
+  --background: #ffffff; /* Clean white background */
+  --foreground: #164e63; /* Deep cyan-800 for primary text */
+  --card: #ecfeff; /* Light cyan background for cards */
+  --card-foreground: #475569; /* Dark cyan for card text */
+  --popover: #ffffff; /* White popover background */
+  --popover-foreground: #164e63; /* Deep cyan for popover text */
+  --primary: #164e63; /* Deep cyan for primary actions */
+  --primary-foreground: #ffffff; /* White text on primary */
+  --secondary: #8b5cf6; /* Purple accent for secondary actions */
+  --secondary-foreground: #ffffff; /* White text on secondary */
+  --muted: #f1f5f9; /* Light gray for muted backgrounds */
+  --muted-foreground: #6b7280; /* Gray for muted text */
+  --accent: #8b5cf6; /* Purple accent color */
+  --accent-foreground: #ffffff; /* White text on accent */
+  --destructive: #dc2626; /* Red for destructive actions */
+  --destructive-foreground: #ffffff; /* White text on destructive */
+  --border: #cbd5e1; /* Darker border for enhanced separation */
+  --input: #f8fafc; /* Light background for inputs */
+  --ring: rgba(22, 78, 99, 0.5); /* Cyan focus ring */
+  --chart-1: #164e63; /* Primary chart color - Deep Cyan */
+  --chart-2: #8b5cf6; /* Secondary chart color - Purple */
+  --chart-3: #6ee7b7; /* Success chart color - Green */
+  --chart-4: #fbbf24; /* Warning chart color - Amber */
+  --chart-5: #ef4444; /* Danger chart color - Red */
+  --radius: 0.5rem;
+  --sidebar: #f8fafc; /* Light sidebar background */
+  --sidebar-foreground: #164e63; /* Deep cyan sidebar text */
+  --sidebar-primary: #164e63; /* Primary sidebar accent */
+  --sidebar-primary-foreground: #ffffff; /* White text on primary sidebar */
+  --sidebar-accent: #8b5cf6; /* Purple sidebar accent */
+  --sidebar-accent-foreground: #ffffff; /* White text on sidebar accent */
+  --sidebar-border: #cbd5e1; /* Enhanced border for sidebar */
+  --sidebar-ring: rgba(22, 78, 99, 0.5); /* Cyan focus ring for sidebar */
+
+  /* Added shadow variables for enhanced depth */
+  --shadow-sm: 0 1px 2px 0 rgba(22, 78, 99, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(22, 78, 99, 0.1), 0 2px 4px -1px rgba(22, 78, 99, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(22, 78, 99, 0.1), 0 4px 6px -2px rgba(22, 78, 99, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(22, 78, 99, 0.1), 0 10px 10px -5px rgba(22, 78, 99, 0.04);
+
+  /* 添加功能性彩色主题变量 */
+  --color-market: #0ea5e9; /* 市场行情 - 天蓝色 */
+  --color-ai: #8b5cf6; /* AI分析 - 紫色 */
+  --color-strategy: #10b981; /* 策略回测 - 绿色 */
+  --color-risk: #f59e0b; /* 风险管理 - 橙色 */
+  --color-portfolio: #ec4899; /* 投资组合 - 粉色 */
+  --color-data: #06b6d4; /* 数据管理 - 青色 */
+  --color-system: #6366f1; /* 系统监控 - 靛蓝色 */
+  --color-settings: #64748b; /* 设置 - 灰色 */
+
+  /* 添加4px彩色阴影变量 */
+  --shadow-market: 0 0 0 4px rgba(14, 165, 233, 0.2);
+  --shadow-ai: 0 0 0 4px rgba(139, 92, 246, 0.2);
+  --shadow-strategy: 0 0 0 4px rgba(16, 185, 129, 0.2);
+  --shadow-risk: 0 0 0 4px rgba(245, 158, 11, 0.2);
+  --shadow-portfolio: 0 0 0 4px rgba(236, 72, 153, 0.2);
+  --shadow-data: 0 0 0 4px rgba(6, 182, 212, 0.2);
+  --shadow-system: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+.dark {
+  /* Dark mode with enhanced blue theme */
+  --background: #0f172a; /* Dark slate background */
+  --foreground: #e2e8f0; /* Light text */
+  --card: #1e293b; /* Dark card background */
+  --card-foreground: #e2e8f0; /* Light card text */
+  --popover: #1e293b; /* Dark popover */
+  --popover-foreground: #e2e8f0; /* Light popover text */
+  --primary: #0ea5e9; /* Bright cyan for primary */
+  --primary-foreground: #ffffff; /* White text */
+  --secondary: #a855f7; /* Bright purple for secondary */
+  --secondary-foreground: #ffffff; /* White text */
+  --muted: #334155; /* Dark muted background */
+  --muted-foreground: #94a3b8; /* Light muted text */
+  --accent: #a855f7; /* Bright purple accent */
+  --accent-foreground: #ffffff; /* White text */
+  --destructive: #ef4444; /* Bright red */
+  --destructive-foreground: #ffffff; /* White text */
+  --border: #475569; /* Enhanced dark border */
+  --input: #1e293b; /* Dark input background */
+  --ring: rgba(14, 165, 233, 0.5); /* Bright cyan focus ring */
+  --chart-1: #0ea5e9; /* Bright cyan for charts */
+  --chart-2: #a855f7; /* Purple for charts */
+  --chart-3: #10b981; /* Green for charts */
+  --chart-4: #f59e0b; /* Amber for charts */
+  --chart-5: #ef4444; /* Red for charts */
+  --sidebar: #0f172a; /* Dark sidebar */
+  --sidebar-foreground: #e2e8f0; /* Light sidebar text */
+  --sidebar-primary: #0ea5e9; /* Bright cyan sidebar primary */
+  --sidebar-primary-foreground: #ffffff; /* White text */
+  --sidebar-accent: #a855f7; /* Purple sidebar accent */
+  --sidebar-accent-foreground: #ffffff; /* White text */
+  --sidebar-border: #475569; /* Enhanced dark sidebar border */
+  --sidebar-ring: rgba(14, 165, 233, 0.5); /* Bright cyan focus ring */
+
+  /* Enhanced shadows for dark mode */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+
+  /* 深色模式下的功能性彩色保持一致 */
+  --color-market: #0ea5e9;
+  --color-ai: #a855f7;
+  --color-strategy: #10b981;
+  --color-risk: #f59e0b;
+  --color-portfolio: #ec4899;
+  --color-data: #06b6d4;
+  --color-system: #6366f1;
+  --color-settings: #94a3b8;
+
+  /* 深色模式下的彩色阴影更明显 */
+  --shadow-market: 0 0 0 4px rgba(14, 165, 233, 0.3);
+  --shadow-ai: 0 0 0 4px rgba(168, 85, 247, 0.3);
+  --shadow-strategy: 0 0 0 4px rgba(16, 185, 129, 0.3);
+  --shadow-risk: 0 0 0 4px rgba(245, 158, 11, 0.3);
+  --shadow-portfolio: 0 0 0 4px rgba(236, 72, 153, 0.3);
+  --shadow-data: 0 0 0 4px rgba(6, 182, 212, 0.3);
+  --shadow-system: 0 0 0 4px rgba(99, 102, 241, 0.3);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Added shadow utilities */
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+
+  /* 添加功能性颜色到主题 */
+  --color-market: var(--color-market);
+  --color-ai: var(--color-ai);
+  --color-strategy: var(--color-strategy);
+  --color-risk: var(--color-risk);
+  --color-portfolio: var(--color-portfolio);
+  --color-data: var(--color-data);
+  --color-system: var(--color-system);
+  --color-settings: var(--color-settings);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Enhanced interactive elements with smooth transitions */
+  button,
+  input,
+  select,
+  textarea {
+    @apply transition-all duration-200 ease-in-out;
+  }
+
+  /* Enhanced card styling with shadows */
+  .card-enhanced {
+    @apply bg-card border border-border rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200;
+  }
+
+  /* Enhanced border styling for partitions */
+  .partition-border {
+    @apply border-2 border-border shadow-sm;
+  }
+}
+
+@layer utilities {
+  /* 添加功能性彩色边框工具类 */
+  .border-market {
+    border-color: var(--color-market);
+  }
+  .border-ai {
+    border-color: var(--color-ai);
+  }
+  .border-strategy {
+    border-color: var(--color-strategy);
+  }
+  .border-risk {
+    border-color: var(--color-risk);
+  }
+  .border-portfolio {
+    border-color: var(--color-portfolio);
+  }
+  .border-data {
+    border-color: var(--color-data);
+  }
+  .border-system {
+    border-color: var(--color-system);
+  }
+  .border-settings {
+    border-color: var(--color-settings);
+  }
+
+  /* 添加功能性彩色文本工具类 */
+  .text-market {
+    color: var(--color-market);
+  }
+  .text-ai {
+    color: var(--color-ai);
+  }
+  .text-strategy {
+    color: var(--color-strategy);
+  }
+  .text-risk {
+    color: var(--color-risk);
+  }
+  .text-portfolio {
+    color: var(--color-portfolio);
+  }
+  .text-data {
+    color: var(--color-data);
+  }
+  .text-system {
+    color: var(--color-system);
+  }
+  .text-settings {
+    color: var(--color-settings);
+  }
+
+  /* 添加功能性彩色背景工具类 */
+  .bg-market {
+    background-color: var(--color-market);
+  }
+  .bg-ai {
+    background-color: var(--color-ai);
+  }
+  .bg-strategy {
+    background-color: var(--color-strategy);
+  }
+  .bg-risk {
+    background-color: var(--color-risk);
+  }
+  .bg-portfolio {
+    background-color: var(--color-portfolio);
+  }
+  .bg-data {
+    background-color: var(--color-data);
+  }
+  .bg-system {
+    background-color: var(--color-system);
+  }
+  .bg-settings {
+    background-color: var(--color-settings);
+  }
+
+  /* 添加4px彩色阴影工具类 */
+  .shadow-market {
+    box-shadow: var(--shadow-market);
+  }
+  .shadow-ai {
+    box-shadow: var(--shadow-ai);
+  }
+  .shadow-strategy {
+    box-shadow: var(--shadow-strategy);
+  }
+  .shadow-risk {
+    box-shadow: var(--shadow-risk);
+  }
+  .shadow-portfolio {
+    box-shadow: var(--shadow-portfolio);
+  }
+  .shadow-data {
+    box-shadow: var(--shadow-data);
+  }
+  .shadow-system {
+    box-shadow: var(--shadow-system);
+  }
+
+  /* 添加彩色卡片样式，带边框和阴影 */
+  .card-market {
+    border: 2px solid var(--color-market);
+    box-shadow: var(--shadow-market);
+  }
+  .card-ai {
+    border: 2px solid var(--color-ai);
+    box-shadow: var(--shadow-ai);
+  }
+  .card-strategy {
+    border: 2px solid var(--color-strategy);
+    box-shadow: var(--shadow-strategy);
+  }
+  .card-risk {
+    border: 2px solid var(--color-risk);
+    box-shadow: var(--shadow-risk);
+  }
+  .card-portfolio {
+    border: 2px solid var(--color-portfolio);
+    box-shadow: var(--shadow-portfolio);
+  }
+  .card-data {
+    border: 2px solid var(--color-data);
+    box-shadow: var(--shadow-data);
+  }
+  .card-system {
+    border: 2px solid var(--color-system);
+    box-shadow: var(--shadow-system);
+  }
+}
+
+/* Added custom animations for enhanced interactivity */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(22, 78, 99, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(22, 78, 99, 0);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Sidebar collapse animation */
+@keyframes sidebar-collapse {
+  from {
+    width: 16rem;
+  }
+  to {
+    width: 4rem;
+  }
+}
+
+@keyframes sidebar-expand {
+  from {
+    width: 4rem;
+  }
+  to {
+    width: 16rem;
+  }
+}
+
+.sidebar-collapsed {
+  animation: sidebar-collapse 0.3s ease-in-out forwards;
+}
+
+.sidebar-expanded {
+  animation: sidebar-expand 0.3s ease-in-out forwards;
+}
